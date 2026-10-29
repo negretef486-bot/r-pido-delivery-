@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0b7a43"><title>RÁPIDO DELIVERY | Pedidos</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,Arial,sans-serif;background:#f3f7f4;color:#1b2a22}.hero{background:linear-gradient(135deg,#075b32,#13a45c);color:white;padding:28px 20px 34px;border-radius:0 0 28px 28px}.wrap{max-width:680px;margin:auto}.brand{font-size:13px;font-weight:800;letter-spacing:2px}.hero h1{font-size:30px;margin:8px 0}.hero p{margin:0}.card{background:white;margin:-16px 14px 22px;padding:20px;border-radius:20px;box-shadow:0 8px 30px #12332612}.card h2{font-size:20px;margin:0 0 5px}.hint{font-size:13px;color:#64736a;margin:0 0 18px}label{display:block;font-size:14px;font-weight:700;margin:14px 0 6px}input,textarea{width:100%;padding:13px;border:1px solid #d5e0d8;border-radius:11px;font:inherit;background:white}textarea{min-height:76px}.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}.choices{display:flex;gap:10px}.choices label{margin:0;flex:1;border:1px solid #d5e0d8;border-radius:11px;padding:12px;font-weight:600;display:flex;gap:8px;align-items:center}.choices input{width:auto}.btn{border:0;background:#0b7a43;color:white;padding:15px;border-radius:12px;font-weight:800;font-size:16px;width:100%;margin-top:18px}.maps{display:inline-block;color:#0b7a43;font-size:13px;margin-top:7px}.foot{text-align:center;color:#68776e;font-size:12px;padding:0 20px 28px}.pill{display:inline-block;background:#e1f5e9;color:#086b3a;border-radius:99px;padding:6px 10px;font-size:12px;font-weight:700}@media(max-width:480px){.two{grid-template-columns:1fr}.hero h1{font-size:27px}}
+</style></head>
+<body>
+<header class="hero"><div class="wrap"><div class="brand">🛵 RÁPIDO DELIVERY</div><h1>Tú compras, nosotros te lo llevamos.</h1><p>Haz tu pedido fácil y rápido en Santa Cruz de la Sierra.</p><p style="margin-top:15px"><span class="pill">📍 Santa Cruz de la Sierra</span></p></div></header>
+<main class="wrap"><section class="card"><h2>📦 Solicitar un delivery</h2><p class="hint">Completa tus datos. WhatsApp abrirá el pedido para que lo confirmes.</p>
+<form id="order">
+<label for="name">Tu nombre</label><input id="name" required placeholder="¿Cómo te llamas?">
+<div class="two"><div><label for="phone">Tu teléfono</label><input id="phone" type="tel" required placeholder="Número de contacto"></div><div><label for="item">¿Qué necesitas?</label><input id="item" required placeholder="Ej. comida, compras"></div></div>
+<label for="pickup">Dirección de recogida / tienda</label><input id="pickup" required placeholder="Nombre del lugar o dirección"><a class="maps" href="https://maps.google.com" target="_blank" rel="noopener">📍 Buscar dirección en Google Maps</a>
+<label for="dropoff">Dirección de entrega</label><input id="dropoff" required placeholder="Barrio, calle, número o referencia"><a class="maps" href="https://maps.google.com" target="_blank" rel="noopener">📍 Abrir Google Maps</a>
+<label for="details">Detalles adicionales</label><textarea id="details" placeholder="Producto, referencias, instrucciones (opcional)"></textarea>
+<label>Forma de pago</label><div class="choices"><label><input type="radio" name="payment" value="Efectivo" checked> 💵 Efectivo</label><label><input type="radio" name="payment" value="QR"> 📱 QR</label></div>
+<button class="btn" type="submit">Enviar pedido por WhatsApp</button></form></section></main>
+<div class="foot">RÁPIDO DELIVERY · Santa Cruz de la Sierra<br>El pedido queda confirmado cuando el equipo te responda por WhatsApp.</div>
+<script>
+document.getElementById('order').addEventListener('submit',function(e){e.preventDefault();const v=id=>document.getElementById(id).value.trim();const payment=document.querySelector('input[name="payment"]:checked').value;const msg='🛵 *NUEVO PEDIDO — RÁPIDO DELIVERY*\\n\\n👤 Cliente: '+v('name')+'\\n📞 Teléfono: '+v('phone')+'\\n🛍️ Pedido: '+v('item')+'\\n📍 Recoger en: '+v('pickup')+'\\n🏠 Entregar en: '+v('dropoff')+'\\n💳 Pago: '+payment+'\\n📝 Detalles: '+(v('details')||'Sin detalles')+'\\n\\nSolicito confirmar disponibilidad y costo del delivery.';window.open('https://wa.me/59178289394?text='+encodeURIComponent(msg),'_blank');});
+</script></body></html>
